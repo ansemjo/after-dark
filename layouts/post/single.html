@@ -1,0 +1,33 @@
+{{ define "header" }}
+  <h1>
+    {{ .Title }}
+    {{ partial "menu.html" . }}
+  </h1>
+  {{ partial "post/metadata.html" . }}
+{{ end }}
+  
+{{ define "main" }}
+
+  <!-- frontmatter description -->
+  {{ if .Description }}
+    <blockquote itemprop="description">
+      {{ .Description }}
+    </blockquote>
+  {{ end }}
+
+  <!-- table of contents -->
+  {{ partial "post/table-of-contents.html" . }}
+
+  <!-- body -->
+  <div itemprop="articleBody">
+    {{ .Content }}
+  </div>
+
+{{ end }}
+  
+{{ define "footer" }}
+  <hr>
+  {{ partial "post/byline.html" . }}
+  {{ partial "post/related-content.html" . }}
+  {{ partial "license.html" . }}
+{{ end }}

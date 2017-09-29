@@ -1,0 +1,95 @@
+/* fade-in intro */
+@keyframes intro {
+    0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+html {
+  animation: intro 0.4s both;
+  animation-delay: 0.1s;
+}
+
+/* padding adjustments */
+.main {
+  padding: 20px 10px;
+}
+pre {
+  padding: 1rem;
+}
+.hack h2 {
+  margin-top: 2em;
+}
+.hack header, .hack h1 {
+  width: 100%;
+  display: block;
+}
+
+/* external link symbol */
+a[href*="://"]::before,
+a[rel*="external"] {
+  /*content: "\1F517\00A0";*/ /* utf8 link symbol */
+  content: '';
+  background: url('/svg/icons.svg');
+  background-size: 100%;
+  height: 1em;
+  width: 1em;
+  margin-block-end: -0.1em;
+  margin-right: 0.15em;
+  display: inline-block;
+}
+
+/* fontsize adjustment for screen */
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 0.9em;
+  }
+  .container {
+    max-width: 50rem;
+  }
+}
+
+/* wrapping in <pre> blocks */
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* lighter font-weight for code */
+.hack code {
+  font-weight: 500;
+  color: #3883ad;
+}
+
+/* spacing in summary */
+.summary, summary {
+  padding-bottom: 1em;
+}
+.summary p, .summary blockquote, .summary h2 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* blockquotes with left borders */
+/* .hack blockquote::after {
+  border-left: 3px solid #6fb3d2;
+  padding-left: 0.4ch;
+}
+.hack blockquote {
+  padding-left: 3ch;
+} */
+
+/* svg icons */
+svg.icon {
+  width: 1.2em;
+  height: 1.2em;
+  margin-bottom: -0.2rem;
+  fill: currentColor;
+}
+
+/* styling for field shortcode */
+.form-control {
+  display: table;
+  white-space: pre-line;
+  padding-left: 10px;
+  border: 2px solid #ccc;
+  padding-bottom: 1.8em;
+}

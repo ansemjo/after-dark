@@ -1,0 +1,7 @@
+<!-- inlining styles is probably faster despite
+  added size due to the saved requests -->
+<style>
+  {{ partial "inline/css/hack.css"   | safeCSS }}
+  {{ partial "inline/css/theme.css"  | safeCSS }}
+  {{ partial "inline/css/base16.css" | safeCSS }}
+</style>

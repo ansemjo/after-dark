@@ -1,0 +1,30 @@
+<article class="summary">
+
+  <!-- page title and metadata -->
+  <header>
+    
+    <h2>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </h2>
+    
+    <!-- metadata if post -->
+    {{ if eq .Type "post" }}
+    {{ partial "post/metadata.html" . }}
+    {{ end }}
+    
+  </header>
+  
+  <!-- description from frontmatter -->
+  {{ if .Description }}
+    <blockquote>{{ .Description }}</blockquote>
+  {{ end }}
+  
+  <!-- abbreviated content -->
+  <div>
+    {{ .Summary }}
+    {{ if .Truncated }}
+      <span class="readmore"><a itemprop="url" href="{{ .RelPermalink }}">read on &raquo;</a></span>
+    {{ end }}
+  </div>
+
+</article>

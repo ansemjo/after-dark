@@ -1,0 +1,30 @@
+<p class="meta">
+
+  <!-- base16 color -->
+  {{ $colorclass := "base0B" }}
+
+  <!-- publishing time -->
+  <svg class="icon"><use xlink:href="/svg/icons.svg#message"/></svg>
+  <span class="{{ $colorclass }}">
+    {{ if .PublishDate.IsZero }}
+    <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+    {{ else if lt .PublishDate .Lastmod }}
+    <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}">{{ .Lastmod.Format "2 Jan 2006" }}</time> (modified)
+    {{ else }}
+      <time datetime="{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" }}">{{ .PublishDate.Format "2 Jan 2006" }}</time>
+      {{ end }}
+  </span>
+
+  <!-- author -->
+  <svg class="icon"><use xlink:href="/svg/icons.svg#user"/></svg>
+  <span class="{{ $colorclass }}">
+    {{ $.Param "author" }}
+  </span>
+
+  <!-- reading time -->
+  <svg class="icon"><use xlink:href="/svg/icons.svg#timer"/></svg>
+  <span class="{{ $colorclass }}">
+    {{ .ReadingTime }} minute{{ if gt .ReadingTime 1 }}s{{ end }}
+  </span>
+
+</p>
