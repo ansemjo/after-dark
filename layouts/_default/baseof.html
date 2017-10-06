@@ -33,6 +33,9 @@
   <!-- <body class="{{ $theme_variant }} main container"> -->
   <body class="hack main container">
 
+    <!-- inline svg icons -->
+    {{ partial "inline/icons.svg" . }}
+
     {{ if eq .Type "post" }}<article>{{ end }}
 
     <header>

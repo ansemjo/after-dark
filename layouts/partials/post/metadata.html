@@ -1,7 +1,7 @@
 <p class="meta">
 
   <!-- publishing time -->
-  <svg class="icon"><use xlink:href="/svg/icons.svg#message"/></svg>
+  <svg class="icon"><use xlink:href="#message"/></svg>
   <span>
     {{ if .PublishDate.IsZero }}
     <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date.Format "2 Jan 2006" }}</time>
@@ -13,13 +13,13 @@
   </span>
 
   <!-- author -->
-  <svg class="icon"><use xlink:href="/svg/icons.svg#user"/></svg>
+  <svg class="icon"><use xlink:href="#user"/></svg>
   <span>
     {{ $.Param "author" }}
   </span>
 
   <!-- reading time -->
-  <svg class="icon"><use xlink:href="/svg/icons.svg#timer"/></svg>
+  <svg class="icon"><use xlink:href="#timer"/></svg>
   <span>
     {{ .ReadingTime }} minute{{ if gt .ReadingTime 1 }}s{{ end }}
   </span>
