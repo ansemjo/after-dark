@@ -1,14 +1,13 @@
 ---
-title: {{ replace .TranslationBaseName "-" " " | title }}
+title: {{ .TranslationBaseName | humanize | title }}
 date: {{ .Date }}
 description: Short description.
 draft: true
-toc: false
+toc: true
 categories:
-  - technology
+  - blog
 tags:
-  - hello
-  - world
+  - untagged
 ---
 
 No content yet.

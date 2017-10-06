@@ -1,5 +1,5 @@
 ---
-title: {{ replace .TranslationBaseName "-" " " | title }}
+title: {{ .TranslationBaseName | humanize | title }}
 date: {{ .Date }}
 description: Short description.
 draft: true
