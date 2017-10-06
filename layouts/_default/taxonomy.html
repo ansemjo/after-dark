@@ -1,0 +1,18 @@
+{{ define "header" }}
+<h1>
+  {{ .Data.Singular | humanize | title }}: {{ .Title }}
+  {{ partial "menu.html" . }}
+</h1>
+{{ end }}
+
+{{ define "main" }}
+  {{ range .Paginator.Pages }}
+    {{ partial "summary.html" . }}
+  {{ end }}
+{{ end }}
+
+{{ define "footer" }}
+  {{ partial "pagination.html" . }}
+  <hr>
+  {{ partial "license.html" . }}
+{{ end }}
