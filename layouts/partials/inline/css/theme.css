@@ -65,7 +65,7 @@ pre {
 /* lighter font-weight for code */
 .hack code {
   font-weight: 500;
-  color: #3883ad;
+  color: #00bcd4;
 }
 
 /* spacing in summary */
@@ -76,16 +76,6 @@ pre {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-
-/* blockquotes with left borders */
-/* .hack blockquote::after {
-  border-left: 3px solid #6fb3d2;
-  padding-left: 0.4ch;
-}
-.hack blockquote {
-  padding-left: 3ch;
-} */
-
 /* styling for field shortcode */
 .form-control {
   display: table;
@@ -93,4 +83,12 @@ pre {
   padding-left: 10px;
   border: 2px solid #ccc;
   padding-bottom: 1.8em;
+}
+
+/* colors */
+details summary {
+  color: #00bcd4;
+}
+.meta span {
+  color: #a1c659;
 }
