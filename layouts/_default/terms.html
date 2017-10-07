@@ -1,7 +1,10 @@
 {{ define "main" }}
   <ul>
-    {{ range $key, $value := .Data.Terms }}
-      <li><a href="{{ $key | urlize }}">{{ $key }}</a> ({{ len $value }})
+    {{ range ($.Site.GetPage "taxonomyTerm" (.Data.Plural)).Pages }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title | lower }}</a>
+        ({{ len .Pages }})
+      </li>
     {{ end }}
   </ul>
 {{ end }}

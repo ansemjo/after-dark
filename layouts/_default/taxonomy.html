@@ -1,6 +1,12 @@
 {{ define "header" }}
 <h1>
-  {{ .Data.Singular | humanize | title }}: {{ .Title }}
+  {{ with ($.Site.GetPage "taxonomyTerm" (.Data.Plural) ) }}
+    <a href="{{ .RelPermalink }}" title="Show all {{ .Data.Plural }}">
+      <svg class="icon"><use xlink:href="#list"/></svg>
+      {{ .Data.Singular | humanize | title }}
+    </a>:
+  {{ end }}
+  {{ .Title }}
   {{ partial "menu.html" . }}
 </h1>
 {{ end }}

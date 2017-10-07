@@ -6,7 +6,7 @@
   {{ with ($.Site.GetPage "taxonomyTerm" $tax . ) }}
   <a href="{{ .RelPermalink }}">
     <svg class="icon"><use xlink:href="#pound"/></svg>
-    {{ .Title }}
+    {{ .Title | urlize }}
   </a>
   {{ end }}
 {{ end }}
