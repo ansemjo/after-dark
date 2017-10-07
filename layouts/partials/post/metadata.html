@@ -3,13 +3,11 @@
   <!-- publishing time -->
   <svg class="icon"><use xlink:href="#calendar"/></svg>
   <span>
-    {{ if .PublishDate.IsZero }}
-    <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" }}">{{ .Date.Format "2 Jan 2006" }}</time>
-    {{ else if lt .PublishDate .Lastmod }}
-    <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}">{{ .Lastmod.Format "2 Jan 2006" }}</time> (modified)
+    {{ if lt (default .Date (.PublishDate)) .Lastmod }}
+      {{ with .Lastmod }}{{ partial "datetime" . }}{{ end }}
     {{ else }}
-      <time datetime="{{ .PublishDate.Format "2006-01-02T15:04:05-07:00" }}">{{ .PublishDate.Format "2 Jan 2006" }}</time>
-      {{ end }}
+      {{ with (default .Date (.PublishDate)) }}{{ partial "datetime" . }}{{ end }}
+    {{ end }}
   </span>
 
   <!-- author -->

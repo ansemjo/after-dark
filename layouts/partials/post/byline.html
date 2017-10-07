@@ -1,29 +1,24 @@
 <p>
 
-  <!-- TODO -->
-
-  <!-- publish date -->
+  <!-- last edit date -->
   Published on
-  <time datetime="{{ dateFormat "2006-01-02T15:04:05-07:00" (default .Date (.PublishDate)) }}">
-    {{ dateFormat "2 Jan, 2006" (default .Date (.PublishDate)) }}
-  </time>
+  {{ with (default .Date (.PublishDate)) }}{{ partial "datetime" . }}{{ end }}
+  {{ if lt (default .Date (.PublishDate)) .Lastmod }}
+    (last modified on
+    {{ with .Lastmod }}{{ partial "datetime" . }}{{ end }})
+  {{ end }}
 
   <!-- author -->
   {{ if ne .Site.Params.hide_author true }}
     by <span itemprop="author">{{ $.Param "author" }}</span>
   {{ end }}
 
-  <!-- categories -->
-  {{ with .Params.categories }}
-    in <span itemprop="articleSection">{{ delimit (apply (apply (sort .) "partial" "post/category-link.html" ".") "chomp" ".") ", " " and " }}</span>
-  {{ end }}
-
   <!-- wordcount -->
   using <span itemprop="wordCount">{{ .WordCount }}</span> words.
-
-  <!-- tags -->
-  {{ with .Params.tags }}
-  <br>Tagged: {{ delimit (apply (apply (sort .) "partial" "post/tag-link.html" ".") "chomp" ".") ", " }}</p>
-  {{ end }}
+  
+  <!-- tags + categories -->
+  <br />
+  <br />{{ partial "post/categories" . }}
+  <br />{{ partial "post/tags" . }}
 
 </p>
