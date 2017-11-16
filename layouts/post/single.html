@@ -8,12 +8,8 @@
   
 {{ define "main" }}
 
-  <!-- frontmatter description -->
-  {{ if .Description }}
-    <blockquote itemprop="description">
-      {{ .Description }}
-    </blockquote>
-  {{ end }}
+  <!-- tl;dr: / description from frontmatter -->
+  {{ partial "post/description.html" . }}
 
   <!-- table of contents -->
   {{ partial "post/table-of-contents.html" . }}

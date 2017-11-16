@@ -14,10 +14,8 @@
     
   </header>
   
-  <!-- description from frontmatter -->
-  {{ if .Description }}
-    <blockquote>{{ .Description }}</blockquote>
-  {{ end }}
+  <!-- tl;dr: / description from frontmatter -->
+  {{ partial "post/description.html" . }}
   
   <!-- abbreviated content -->
   <div>

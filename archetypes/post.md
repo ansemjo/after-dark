@@ -1,11 +1,14 @@
 ---
 title: {{ .TranslationBaseName | humanize | title }}
+description: too long, didn't read.
 date: {{ .Date }}
-description: Short description.
+
 draft: true
 toc: true
+
 categories:
   - blog
+
 tags:
   - untagged
 ---
