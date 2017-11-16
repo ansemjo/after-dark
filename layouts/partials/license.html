@@ -1,1 +1,1 @@
-{{ $.Param "copyright" | markdownify }}
+{{ (default "" ($.Param "copyright")) | markdownify }}
