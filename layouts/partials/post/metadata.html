@@ -3,11 +3,7 @@
   <!-- publishing time -->
   <svg class="icon"><use xlink:href="#calendar"/></svg>
   <span>
-    {{ if lt (default .Date (.PublishDate)) .Lastmod }}
-      {{ with .Lastmod }}{{ partial "datetime" . }}{{ end }}
-    {{ else }}
-      {{ with (default .Date (.PublishDate)) }}{{ partial "datetime" . }}{{ end }}
-    {{ end }}
+    {{ partial "datetime" .PublishDate }}
   </span>
 
   <!-- author -->
